@@ -1,0 +1,5 @@
+/*Departure*/
+Select D_CUSTOMER_STAY.ReservationNumber, D_CUSTOMER.FirstName, D_CUSTOMER.LastName, D_CUSTOMER_STAY.StayStatus,D_CUSTOMER_STAY.DepartureDate, D_CUSTOMER_STAY.SourceOfBusiness, D_CUSTOMER_STAY.MarketSubSeg, D_CUSTOMER_STAY.StayTotalRoomRevenueWithTax, D_CUSTOMER_STAY.RateType, D_CUSTOMER_STAY.ResCreationDate   FROM D_CUSTOMER_STAY
+  INNER JOIN D_CUSTOMER ON D_CUSTOMER.SourceGuestID = D_CUSTOMER_STAY.SourceGuestID
+  WHERE StayStatus = 'O' AND DepartureDate between '2023-10-16 00:00:00.000' and '2023-10-22 00:00:00.000'
+   
