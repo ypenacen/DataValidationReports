@@ -1,0 +1,1 @@
+These queries are designed to extract stay reservation fields from the CRM databases for the purpose of validating the accuracy of the data against the Property Management System (PMS). These queries serve as a foundational tool for data validation processes and can be further customized to include additional fields as per client requirements.
