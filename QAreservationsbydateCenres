@@ -1,0 +1,31 @@
+select distinct s.ConfirmationNum,s.CentralResNum, p.LastName, p.FirstName, s.ResArriveDate, s.ResDepartDate, s.RateCode, s.MarketSegmentCode, s.DateInserted, s.ResStatusCode, s.externalResID1 
+from Reservations s with(nolock)
+join Guests g with(nolock) 
+on FK_Reservations = PK_Reservations
+inner join Profiles p with(nolock) 
+on PK_Profiles = FK_Profiles
+inner join StayDetail r with(nolock)
+on r.FK_Reservations = s.PK_Reservations
+inner join ContactMethod cm with(nolock)
+on cm.FK_Profiles = p.PK_Profiles
+where 1=1
+and s.CendynPropertyID = '32382' 
+and cast(s.DateInserted as date) = '2021-01-27' 
+and s.ResStatusCode <> 'C'
+--and cm.CMData = 'Rebecca.Liese@jumeirah.com'
+--and MarketSubSeg <> 'COMP'
+Group by s.ConfirmationNum,s.CentralResNum, p.LastName, p.FirstName, s.ResArriveDate, s.ResDepartDate, s.RateCode, s.MarketSegmentCode, s.DateInserted, s.ResStatusCode, s.externalResID1
+--order by p.LastName
+order by  LastName
+
+select * from reservations r with(nolock)
+inner join Profiles p with(nolock)
+on p.ImportSourceID = r.ImportSourceID
+where r.CendynPropertyID = '32382' 
+and p.LastName in ('Brimble','Liese')
+and ConfirmationNum = '87617732'
+
+select * from Reservations s with(nolock)
+join Guests g with(nolock) on FK_Reservations = PK_Reservations
+inner join Profiles p with(nolock) on PK_Profiles = FK_Profiles
+where ExternalResID1 = '87617732'
