@@ -1,0 +1,16 @@
+/*Database
+PHB-CRMDB006.centralservices.local
+eContact_Cendyn
+*/
+
+SELECT * FROM dbo.Parentcompany WHERE ParentCompany LIKE '%esterel%' --Search Parent Property Name
+
+SELECT * FROM dbo.Company WHERE ParentCompany = 2011 --Search ID from Parentcompany for all properties
+
+/*for eInsight*/
+SELECT * FROM dbo.eContact_Settings WHERE CompanyID = 13403 --Search for any property ID for DB info
+AND SettingName LIKE 'SP%'
+
+/*for CenRes*/
+SELECT * FROM dbo.eContact_Settings WHERE CompanyID = 13403 --Search for any property ID for DB info
+AND SettingName LIKE '%cenres%'
